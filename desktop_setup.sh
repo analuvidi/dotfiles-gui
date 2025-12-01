@@ -85,9 +85,17 @@ cd $DIR
 # Wallpaper
 ## Copy resources
 IMGDIR=~/Images/
-if [ "$LANGUAGE" == "es_ES" ]; then # change according to language
+
+# Caso o sistema esteja em espanhol
+if [ "$LANGUAGE" == "es_ES" ]; then
     IMGDIR=~/Imágenes/
 fi
+
+# Caso o sistema esteja em português do Brasil
+if [[ "$LANG" == "pt_BR.UTF-8" || "$LANGUAGE" == "pt_BR" ]]; then
+    IMGDIR=~/Imagens/
+fi
+
 cp -r wallpapers $IMGDIR
 
 #gsettings set org.cinnamon.desktop.background picture-uri "file:///$IMGDIR/wallpapers/astronaut.jpg"
